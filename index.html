@@ -1,1059 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Deutsch B2 — Learn German</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f6f8fb;
-            color: #172033;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* NAVBAR */
-
-        nav {
-            height: 70px;
-            background: #ffffff;
-            border-bottom: 1px solid #e8ebf0;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 21px;
-            font-weight: 800;
-        }
-
-        .logo span {
-            color: #087f75;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            color: #667085;
-            font-size: 14px;
-        }
-
-        .nav-links a:hover {
-            color: #087f75;
-        }
-
-        /* HERO */
-
-        .hero {
-            background: #172033;
-            color: white;
-            padding: 90px 20px;
-        }
-
-        .hero-container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1.3fr .7fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(79, 209, 197, .12);
-            color: #4fd1c5;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            line-height: 1.05;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #4fd1c5;
-        }
-
-        .hero-text {
-            color: #b8c1d1;
-            font-size: 17px;
-            max-width: 650px;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 18px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .btn-primary {
-            background: #4fd1c5;
-            color: #10201f;
-        }
-
-        .btn-secondary {
-            border: 1px solid #445066;
-            color: white;
-        }
-
-        .hero-card {
-            background: #202c41;
-            border: 1px solid #334158;
-            border-radius: 15px;
-            padding: 28px;
-        }
-
-        .hero-card h3 {
-            margin-bottom: 15px;
-        }
-
-        .hero-card-item {
-            padding: 12px 0;
-            border-bottom: 1px solid #334158;
-            color: #c8d0dc;
-            font-size: 14px;
-        }
-
-        .hero-card-item:last-child {
-            border-bottom: none;
-        }
-
-        /* GENERAL */
-
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .section {
-            padding: 70px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 45px;
-        }
-
-        .section-header h2 {
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
-
-        .section-header p {
-            color: #667085;
-        }
-
-        /* LEARNING PATH */
-
-        .path {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .path-card {
-            background: white;
-            border: 1px solid #e6e9ef;
-            border-radius: 12px;
-            padding: 23px;
-        }
-
-        .path-number {
-            color: #087f75;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .path-card h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .path-card p {
-            color: #667085;
-            font-size: 14px;
-        }
-
-        /* BOOKS */
-
-        .books-section {
-            background: #ffffff;
-        }
-
-        .books {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .book {
-            border: 1px solid #e3e7ed;
-            border-radius: 14px;
-            padding: 28px;
-            background: #fff;
-            transition: .2s;
-        }
-
-        .book:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(20, 30, 50, .08);
-        }
-
-        .book.featured {
-            border-color: #4fd1c5;
-        }
-
-        .book-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 18px;
-        }
-
-        .book-number {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            background: #e6f7f5;
-            color: #087f75;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .level {
-            background: #eef2f7;
-            color: #526071;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .book h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .book-description {
-            color: #667085;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .book-features {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .book-features li {
-            font-size: 13px;
-            color: #475467;
-            padding: 5px 0;
-        }
-
-        .book-features li::before {
-            content: "✓";
-            color: #087f75;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        .book-buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .book-btn {
-            padding: 9px 13px;
-            border-radius: 7px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .book-btn.primary {
-            background: #172033;
-            color: white;
-        }
-
-        .book-btn.secondary {
-            background: #eef1f5;
-            color: #172033;
-        }
-
-        /* SKILLS */
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .skill {
-            background: white;
-            border: 1px solid #e5e9ef;
-            border-radius: 12px;
-            padding: 25px;
-        }
-
-        .skill h3 {
-            margin-bottom: 8px;
-        }
-
-        .skill p {
-            color: #667085;
-            font-size: 14px;
-        }
-
-        /* TELC */
-
-        .telc {
-            background: #172033;
-            color: white;
-            border-radius: 16px;
-            padding: 50px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .telc h2 {
-            font-size: 34px;
-            margin-bottom: 15px;
-        }
-
-        .telc p {
-            color: #b8c1d1;
-        }
-
-        .telc-list {
-            list-style: none;
-        }
-
-        .telc-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #334158;
-            color: #d7deea;
-        }
-
-        .telc-list li::before {
-            content: "✓";
-            color: #4fd1c5;
-            margin-right: 10px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #101827;
-            color: #8994a7;
-            padding: 30px 0;
-            text-align: center;
-            font-size: 13px;
-        }
-
-        /* RESPONSIVE */
-
-        @media (max-width: 850px) {
-            .hero-container,
-            .telc {
-                grid-template-columns: 1fr;
-            }
-
-            .path,
-            .skills {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero h1 {
-                font-size: 45px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .nav-links {
-                display: none;
-            }
-
-            .books,
-            .path,
-            .skills {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 65px 20px;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .telc {
-                padding: 30px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resources Unlocked — DeutschPath</title>
+
+<meta name="description"
+      content="Access your German B1 to B2 learning resources, grammar practice, vocabulary and TELC preparation.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark: #111827;
+    --dark-2: #172033;
+    --teal: #4fd1c5;
+    --teal-dark: #26a69a;
+    --white: #ffffff;
+    --muted: #667085;
+    --bg: #f7f9fc;
+    --border: #e7ebf2;
+    --green: #22c55e;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+
+nav {
+    height: 72px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+    max-width: 1100px;
+    height: 100%;
+    margin: auto;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+    background: var(--dark);
+    color: var(--teal);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 900;
+}
+
+.home-link {
+    color: #667085;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.home-link:hover {
+    color: var(--teal-dark);
+}
+
+/* MAIN */
+
+main {
+    padding: 70px 20px 100px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* SUCCESS HEADER */
+
+.success {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+.success-icon {
+    width: 78px;
+    height: 78px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+    color: var(--green);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 36px;
+    font-weight: 900;
+
+    box-shadow: 0 10px 30px rgba(34,197,94,.12);
+}
+
+.success-label {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    background: #ecfffc;
+    color: var(--teal-dark);
+
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: .7px;
+
+    margin-bottom: 15px;
+}
+
+.success h1 {
+    font-size: clamp(36px, 6vw, 54px);
+
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+
+    margin-bottom: 18px;
+}
+
+.success h1 span {
+    color: var(--teal-dark);
+}
+
+.success > p {
+    color: var(--muted);
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* RESOURCES */
+
+.resources {
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.resource {
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    transition: .2s ease;
+}
+
+.resource:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 40px rgba(16,24,40,.08);
+}
+
+.resource-number {
+    font-size: 12px;
+
+    font-weight: 900;
+
+    color: #98a2b3;
+
+    margin-bottom: 12px;
+}
+
+.resource-icon {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 12px;
+
+    background: #ecfffc;
+    color: var(--teal-dark);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+
+    margin-bottom: 17px;
+}
+
+.resource h2 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+.resource p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+.resource-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 12px 18px;
+
+    border-radius: 9px;
+
+    background: var(--dark);
+
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: .2s ease;
+}
+
+.resource-button:hover {
+    background: var(--teal-dark);
+}
+
+/* FEATURED */
+
+.featured {
+    grid-column: 1 / -1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #172033,
+            #111827
+        );
+
+    color: #fff;
+
+    border: none;
+}
+
+.featured .resource-number {
+    color: #8792a6;
+}
+
+.featured .resource-icon {
+    background: rgba(79,209,197,.1);
+    color: var(--teal);
+}
+
+.featured p {
+    color: #aeb8c9;
+}
+
+.featured .resource-button {
+    background: var(--teal);
+    color: #102020;
+
+    max-width: 240px;
+}
+
+.featured .resource-button:hover {
+    background: #69e0d5;
+}
+
+/* STUDY TIP */
+
+.study-tip {
+    margin-top: 35px;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: flex-start;
+}
+
+.tip-icon {
+    font-size: 20px;
+}
+
+.study-tip h3 {
+    font-size: 15px;
+
+    margin-bottom: 4px;
+}
+
+.study-tip p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+/* FOOTER */
+
+footer {
+    background: #0c1220;
+
+    color: #9aa5b8;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    font-size: 12px;
+}
+
+footer strong {
+    color: #fff;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .resources {
+        grid-template-columns: 1fr;
+    }
+
+    .featured {
+        grid-column: auto;
+    }
+
+    main {
+        padding-top: 50px;
+    }
+
+    .success h1 {
+        font-size: 38px;
+    }
+
+    .success > p {
+        font-size: 15px;
+    }
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .home-link {
+        font-size: 13px;
+    }
+
+    .featured .resource-button {
+        max-width: 100%;
+    }
+}
+</style>
 </head>
+
 
 <body>
 
 <!-- NAVBAR -->
 
 <nav>
+
     <div class="nav-container">
 
-        <div class="logo">
-            Deutsch<span>Lab</span>
-        </div>
+        <a href="index.html" class="logo">
 
-        <div class="nav-links">
-            <a href="#path">Learning Path</a>
-            <a href="#books">Books</a>
-            <a href="#skills">Skills</a>
-            <a href="#telc">TELC B2</a>
-        </div>
+            <div class="logo-icon">
+                DE
+            </div>
+
+            DeutschPath
+
+        </a>
+
+        <a href="index.html" class="home-link">
+            ← Back to Home
+        </a>
 
     </div>
+
 </nav>
 
 
-<!-- HERO -->
+<!-- MAIN -->
 
-<section class="hero">
+<main>
 
-    <div class="hero-container">
+<div class="container">
+
+
+    <!-- SUCCESS -->
+
+    <div class="success">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <div class="success-label">
+            ACCESS UNLOCKED
+        </div>
+
+        <h1>
+            Your German resources
+            <br>
+            are <span>ready.</span>
+        </h1>
+
+        <p>
+            Start learning with carefully selected German
+            resources for B1, B2 and TELC exam preparation.
+        </p>
+
+    </div>
+
+
+    <!-- RESOURCE CARDS -->
+
+    <div class="resources">
+
+
+        <!-- 01 -->
+
+        <div class="resource featured">
+
+            <div class="resource-number">
+                01 / START HERE
+            </div>
+
+            <div class="resource-icon">
+                🇩🇪
+            </div>
+
+            <h2>
+                German B1 → B2 Resource Pack
+            </h2>
+
+            <p>
+                Start with official German learning and
+                practice materials. Build your grammar,
+                vocabulary and exam skills step by step.
+            </p>
+
+            <a
+                href="https://www.goethe.de/ins/de/en/kur/ueb.html"
+                class="resource-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Open Resource Pack →
+            </a>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="resource">
+
+            <div class="resource-number">
+                02
+            </div>
+
+            <div class="resource-icon">
+                A
+            </div>
+
+            <h2>
+                Grammar
+            </h2>
+
+            <p>
+                Practice German grammar and improve your
+                accuracy with interactive exercises.
+            </p>
+
+            <a
+                href="https://www.goethe.de/prj/dfd/en/home.cfm"
+                class="resource-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Open Grammar →
+            </a>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="resource">
+
+            <div class="resource-number">
+                03
+            </div>
+
+            <div class="resource-icon">
+                W
+            </div>
+
+            <h2>
+                Vocabulary
+            </h2>
+
+            <p>
+                Expand your German vocabulary with useful
+                words, expressions and practical exercises.
+            </p>
+
+            <a
+                href="https://www.goethe.de/prj/dfd/en/home.cfm"
+                class="resource-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Open Vocabulary →
+            </a>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="resource">
+
+            <div class="resource-number">
+                04
+            </div>
+
+            <div class="resource-icon">
+                ✓
+            </div>
+
+            <h2>
+                Goethe B2 Preparation
+            </h2>
+
+            <p>
+                Practice reading, listening, writing and
+                speaking with official B2 exam materials.
+            </p>
+
+            <a
+                href="https://www.goethe.de/ins/de/en/prf/prf/gzb2/ue9.html"
+                class="resource-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Start B2 Practice →
+            </a>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="resource">
+
+            <div class="resource-number">
+                05
+            </div>
+
+            <div class="resource-icon">
+                S
+            </div>
+
+            <h2>
+                Speaking Practice
+            </h2>
+
+            <p>
+                Prepare for the speaking section with
+                official B2 speaking examples and exercises.
+            </p>
+
+            <a
+                href="https://www.goethe.de/ins/de/en/prf/prf/gzb2/ue9.html"
+                class="resource-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Practice Speaking →
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- TIP -->
+
+    <div class="study-tip">
+
+        <div class="tip-icon">
+            💡
+        </div>
 
         <div>
 
-            <span class="badge">
-                GERMAN • B1 → B2
-            </span>
-
-            <h1>
-                Learn German.<br>
-                Reach <span>B2.</span>
-            </h1>
-
-            <p class="hero-text">
-                A focused collection of German learning books for
-                improving grammar, vocabulary, speaking, reading,
-                writing and preparing for the TELC B2 exam.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#books" class="btn btn-primary">
-                    Explore Books
-                </a>
-
-                <a href="#telc" class="btn btn-secondary">
-                    TELC B2 Preparation
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-card">
-
-            <h3>Your B2 Roadmap</h3>
-
-            <div class="hero-card-item">
-                01 — Strengthen your B1 foundation
-            </div>
-
-            <div class="hero-card-item">
-                02 — Expand B2 vocabulary
-            </div>
-
-            <div class="hero-card-item">
-                03 — Improve grammar accuracy
-            </div>
-
-            <div class="hero-card-item">
-                04 — Practice TELC exam tasks
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- LEARNING PATH -->
-
-<section class="section" id="path">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <h2>
-                A simple learning path
-            </h2>
+            <h3>
+                Study tip
+            </h3>
 
             <p>
-                Use the right book for the right stage instead of
-                studying everything at the same time.
+                Don't try to study everything at once.
+                Choose one topic, practice it, then move
+                to the next one.
             </p>
 
         </div>
 
-
-        <div class="path">
-
-            <div class="path-card">
-
-                <div class="path-number">
-                    STEP 01
-                </div>
-
-                <h3>Build the Foundation</h3>
-
-                <p>
-                    Review essential grammar, vocabulary and
-                    everyday German.
-                </p>
-
-            </div>
-
-
-            <div class="path-card">
-
-                <div class="path-number">
-                    STEP 02
-                </div>
-
-                <h3>Move to B2</h3>
-
-                <p>
-                    Develop more advanced vocabulary and learn
-                    to express opinions clearly.
-                </p>
-
-            </div>
-
-
-            <div class="path-card">
-
-                <div class="path-number">
-                    STEP 03
-                </div>
-
-                <h3>Fix Grammar</h3>
-
-                <p>
-                    Practice the grammar structures that cause
-                    repeated mistakes.
-                </p>
-
-            </div>
-
-
-            <div class="path-card">
-
-                <div class="path-number">
-                    STEP 04
-                </div>
-
-                <h3>Prepare for TELC</h3>
-
-                <p>
-                    Train the actual exam formats and tasks
-                    under realistic conditions.
-                </p>
-
-            </div>
-
-        </div>
-
     </div>
 
-</section>
 
+</div>
 
-<!-- BOOKS -->
-
-<section class="section books-section" id="books">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <h2>
-                Recommended Books
-            </h2>
-
-            <p>
-                Five books covering foundation, advanced German,
-                grammar and TELC B2 preparation.
-            </p>
-
-        </div>
-
-
-        <div class="books">
-
-
-            <!-- 01 -->
-
-            <div class="book">
-
-                <div class="book-top">
-
-                    <div class="book-number">
-                        01
-                    </div>
-
-                    <span class="level">
-                        A1 – B1
-                    </span>
-
-                </div>
-
-                <h3>
-                    Menschen
-                </h3>
-
-                <p class="book-description">
-                    A structured German course for building the
-                    fundamentals of the language.
-                </p>
-
-                <ul class="book-features">
-
-                    <li>Grammar foundations</li>
-                    <li>Everyday vocabulary</li>
-                    <li>Listening practice</li>
-                    <li>Communication</li>
-
-                </ul>
-
-                <div class="book-buttons">
-
-                    <a
-                        href="https://www.hueber.de/reihe/menschen"
-                        target="_blank"
-                        class="book-btn primary">
-                        Official Page
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 02 -->
-
-            <div class="book featured">
-
-                <div class="book-top">
-
-                    <div class="book-number">
-                        02
-                    </div>
-
-                    <span class="level">
-                        B1+ – C1
-                    </span>
-
-                </div>
-
-                <h3>
-                    Sicher! aktuell
-                </h3>
-
-                <p class="book-description">
-                    Designed for learners moving toward advanced
-                    German with strong B2-level communication.
-                </p>
-
-                <ul class="book-features">
-
-                    <li>B2 vocabulary</li>
-                    <li>Speaking practice</li>
-                    <li>Reading comprehension</li>
-                    <li>Writing practice</li>
-
-                </ul>
-
-                <div class="book-buttons">
-
-                    <a
-                        href="https://www.hueber.de/reihe/sicher-aktuell"
-                        target="_blank"
-                        class="book-btn primary">
-                        Official Page
-                    </a>
-
-                    <a
-                        href="https://www.hueber.de/reihe/sicher/testen"
-                        target="_blank"
-                        class="book-btn secondary">
-                        Samples
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 03 -->
-
-            <div class="book">
-
-                <div class="book-top">
-
-                    <div class="book-number">
-                        03
-                    </div>
-
-                    <span class="level">
-                        B1+ – C1
-                    </span>
-
-                </div>
-
-                <h3>
-                    Aspekte neu
-                </h3>
-
-                <p class="book-description">
-                    More demanding German for learners who want
-                    richer vocabulary and stronger expression.
-                </p>
-
-                <ul class="book-features">
-
-                    <li>Advanced vocabulary</li>
-                    <li>Authentic texts</li>
-                    <li>Discussion skills</li>
-                    <li>Written expression</li>
-
-                </ul>
-
-                <div class="book-buttons">
-
-                    <a
-                        href="https://www.klett-sprachen.de/aspekte-neu/t-1/9783126053363"
-                        target="_blank"
-                        class="book-btn primary">
-                        Official Page
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 04 -->
-
-            <div class="book">
-
-                <div class="book-top">
-
-                    <div class="book-number">
-                        04
-                    </div>
-
-                    <span class="level">
-                        B2 – C1
-                    </span>
-
-                </div>
-
-                <h3>
-                    Grammatik aktiv
-                </h3>
-
-                <p class="book-description">
-                    Focused grammar training designed to turn
-                    grammar knowledge into accurate German.
-                </p>
-
-                <ul class="book-features">
-
-                    <li>Grammar exercises</li>
-                    <li>Error correction</li>
-                    <li>B2 structures</li>
-                    <li>Practical examples</li>
-
-                </ul>
-
-                <div class="book-buttons">
-
-                    <a
-                        href="https://www.cornelsen.de/produkte/grammatik-aktiv-verstehen-ueben-sprechen-uebungsgrammatik-als-e-book-b2-c1-1100032436"
-                        target="_blank"
-                        class="book-btn primary">
-                        Official Page
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 05 -->
-
-            <div class="book featured">
-
-                <div class="book-top">
-
-                    <div class="book-number">
-                        05
-                    </div>
-
-                    <span class="level">
-                        TELC B2
-                    </span>
-
-                </div>
-
-                <h3>
-                    Mit Erfolg zum telc Deutsch B2
-                </h3>
-
-                <p class="book-description">
-                    Exam-focused material for learning the TELC
-                    B2 task formats and practicing each module.
-                </p>
-
-                <ul class="book-features">
-
-                    <li>Reading</li>
-                    <li>Listening</li>
-                    <li>Writing</li>
-                    <li>Speaking</li>
-
-                </ul>
-
-                <div class="book-buttons">
-
-                    <a
-                        href="https://www.klett-sprachen.de/mit-erfolg-zum-telc-deutsch-b2/t-1/9783126751788"
-                        target="_blank"
-                        class="book-btn primary">
-                        Official Page
-                    </a>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SKILLS -->
-
-<section class="section" id="skills">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <h2>
-                What you will improve
-            </h2>
-
-            <p>
-                B2 requires more than knowing grammar rules.
-                You need to use German actively.
-            </p>
-
-        </div>
-
-
-        <div class="skills">
-
-            <div class="skill">
-
-                <h3>Grammar</h3>
-
-                <p>
-                    Konjunktiv II, passive voice, connectors,
-                    relative clauses and complex sentence structures.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <h3>Vocabulary</h3>
-
-                <p>
-                    Build topic-based vocabulary and learn
-                    useful expressions for B2 communication.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <h3>Speaking</h3>
-
-                <p>
-                    Explain opinions, discuss problems,
-                    give arguments and react naturally.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <h3>Writing</h3>
-
-                <p>
-                    Structure formal texts, complaints,
-                    arguments and exam responses.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- TELC -->
-
-<section class="section" id="telc">
-
-    <div class="container">
-
-        <div class="telc">
-
-            <div>
-
-                <span class="badge">
-                    TELC DEUTSCH B2
-                </span>
-
-                <h2>
-                    Prepare for the exam
-                </h2>
-
-                <p>
-                    After building your German, switch from
-                    general learning to exam-specific practice.
-                    Learn the task structure and train each skill
-                    under time pressure.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <ul class="telc-list">
-
-                    <li>
-                        Leseverstehen — Reading
-                    </li>
-
-                    <li>
-                        Hörverstehen — Listening
-                    </li>
-
-                    <li>
-                        Schriftlicher Ausdruck — Writing
-                    </li>
-
-                    <li>
-                        Mündlicher Ausdruck — Speaking
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+</main>
 
 
 <!-- FOOTER -->
 
 <footer>
 
-    <div class="container">
-
-        <p>
-            DeutschLab — German learning resources
-        </p>
-
-        <p>
-            Full copyrighted books are not provided.
-            Links lead to official publisher pages and available sample materials.
-        </p>
-
-    </div>
+    <strong>DeutschPath</strong>
+    — German learning resources from B1 to B2.
 
 </footer>
+
 
 </body>
 </html>
